@@ -30,8 +30,7 @@ exports.projectConfig = function projectConfigAndroid(folder, userConfig) {
   const manifest = readManifest(manifestPath);
 
   const packageName = userConfig.packageName || getPackageName(manifest);
-  const packageFolder = userConfig.packageFolder ||
-    packageName.replace(/\./g, path.sep);
+  const packageFolder = userConfig.packageFolder || (packageName ? packageName.replace(/\./g, path.sep) : path.sep; 
 
   const mainFilePath = path.join(
     sourceDir,
