@@ -7,7 +7,7 @@ const mime = require('mime');
  * we define two non-standard ones for the sake of parsing
  */
 mime.define({
-  'font/opentype': ['otf'],
+  'font/otf': ['otf'],
   'font/truetype': ['ttf'],
 });
 
