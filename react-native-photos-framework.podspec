@@ -1,17 +1,20 @@
 require 'json'
-pkg = JSON.parse(File.read("package.json"))
+package = JSON.parse(File.read("package.json"))
 
 Pod::Spec.new do |s|
-  s.name         = pkg["name"]
-  s.version      = pkg["version"]
-  s.summary      = pkg["description"]
-  s.requires_arc = true
-  s.license      = pkg["license"]
-  s.homepage     = pkg["homepage"]
-  s.author       = pkg["author"]
-  s.source       = { :git => pkg["repository"]["url"],
-                     :tag => "v" + pkg["version"] }
-  s.source_files = 'ios/**/*.{h,m}'
-  s.platform     = :ios, "8.0"
-  s.dependency 'React/Core'
+
+  s.name         = "react-native-photos-framework"
+  s.version      = package['version']
+  s.summary      = package['description']
+  s.license      = package['license']
+
+  s.authors      = package['author']
+  s.homepage     = package['homepage']
+  s.platform     = :ios, "9.0"
+
+  s.source       =  { :git => "https://github.com/vforvasile/react-native-photos-framework.git", :tag => "v#{s.version}" }
+  s.source_files  = "ios/**/*.{h,m}"
+
+  s.dependency 'React'
+
 end
